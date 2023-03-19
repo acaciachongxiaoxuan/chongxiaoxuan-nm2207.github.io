@@ -1,59 +1,116 @@
-
-
 html, body {
-height:100%;
-width:100%;
-background-color: rgb(178, 224, 169);
-}
+    height:100%;
+    width:100%;
+    background-color: rgb(178, 224, 169);
+    scroll-behavior: smooth;
+    }
+    
+    /* Sections of Layout
+    -------------------------------------- */
+    
+    
 
-/* Sections of Layout
--------------------------------------- */
+    .header {
+        padding: 60px;
+        text-align: center;
+        background: #43ac97;
+        color: white;
+        font-size: 30px;
+        margin: 0px
+      }
+    
 
-.header {
-text-align:center;
-font-size:larger;
-font-family: sans-serif;
+    .subheader {
+        padding: 60px;
+        text-align: center;
+        background-color:rgb(13, 69, 10);
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        margin-top: 10px;
+        font-family: sans-serif;
+        height: 200px;
+       
+      }
+      #mark {
+        background-color: rgb(240, 239, 239);
+        color: rgb(13, 69, 10);
+        border-radius: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+      }
 
-}
+      #markbeef {
+        color:rgb(0, 0, 0);
+        background-color: rgb(169, 203, 167);
+      }
+    
+    .footer  {
+        margin-top: 100px;
+        padding: 50px;
+        background: #43ac97;
+        color: white;
+    }
 
-/* Generic styles for demo purposes
--------------------------------------- */
-.container {
-font-family: Helvetica, Arial, sans-serif;
-height:400;
-width:600;
-}
 
-.container > * {
-background-color: rgb(255, 255, 255);
-padding: 1em;
-border-style: solid;
-border-width: 1px;
-height: 400;
-width: 600;
-}
+    /* Generic styles for demo purposes
+    -------------------------------------- */
+    .container {
+    font-family: Helvetica, Arial, sans-serif;
+    height: auto;
+    width: 60%;
+    margin-top: 0px;
+    margin-bottom: 100px;
+    margin-right: 20%;
+    margin-left: 20%;
+    
+    }
 
-.box {
+    .box {
+    font-family: Helvetica, Arial, sans-serif;
+    height: auto;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 10%;
+    margin-left: 10%;
+
+    }
+    
+    .container > * {
+    background-color: rgb(255, 255, 255);
+    padding: 1em;
+    border-style: solid;
+    border-width: 1px;
+    height: 400;
+    width: 400;
+    
+    
+    }
+    
+    .box {
         height: 400;
         width: 600;
 
     }
 
+    
 
-.style
-        #canvas-container {
-            position: relative;
-            height: 80%;
-            width: 80%;
+    .style
+            #canvas-container {
+                position: relative;
+                height: 80%;
+                width: 30%;
+            }
+    
+    table {
+        width: 100%;
         }
-
-table {
-    width: 100%;
+    
+    .button {
+        height: 100px;
+        width: 300px;
+        border-radius: 10px;
+        font-size: 20px
     }
-
-.button {
-    height: 100px;
-    width: 300px;
-    border-radius: 10px;
-    font-size: 20px
-}
+    
+    

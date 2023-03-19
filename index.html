@@ -19,14 +19,29 @@
 
     <div class="subheader">
         <h2 align="center">
-           -- Insert what it means to be a sustainable consumer --
+           <p style="font-size:20px">
+            The Singapore Government has recently announced the SG Green Plan 2030, a nation-wide sustainable development agenda.
+            <br>
+            As a consumer, you have a really big role to play in ensuring the success of this plan!
+            <br>
+            In your everyday life, the food and fashion products that you consumer, as well as your recycling efforts can make a big difference to the sustainability of our nation.
+            <br>
+           </p>
+           <p style="font-size:20px"><mark id="mark">Click on the leaf below to learn more about how you can be sustainable consumer!</mark> </p>
+           <a href="#yay"><img src ="resources\Green-Leaf-PNG-Free-Image.png" class="btn" style="width:80px"> </a>
+           
         </h2>
     </div>
-
+    <div class="divider" style="width:10;height:10;">
+        <p align="center">
+            <img src="resources/river.png" >
+        </p>
+        
+    </div>
     <div class="container">
         <!-- Start of first section-->
         
-            <h2 class="section-title">
+            <h2 class="section-title" id="yay">
                 Food Products
             </h2>
 
@@ -34,8 +49,16 @@
                 
                         <div class="box">
                         <div id="canvas-container">
-                            These are your current habits
-                            <canvas id="beef-chart" width="400" height="400"></canvas> <!--Notice here we put the id of the "new chart" we created in the script part.-->
+                            <p style="font-size:18px" align="center"> <mark id="markbeef" style="font-size:24px" align="center"><b>Since 2015, the consumption of beef in Singapore has been on an ever-rising trend.</b></mark> 
+                                <br> <br>
+                                Did you know that consuming meat, especially beef, is an extremely unsustainable practice?
+                                <br>
+                                Beef requires more resources to produce that most other types of meat, even when meat is already more
+                                <br>
+                                resource-intensive to produce than plant-based foods.    
+                            </p>
+
+                            <canvas id="beef-chart" width="100" height="300"></canvas> 
                         </div>
                         
                          <!--link to source-->
@@ -45,15 +68,16 @@
                     </div>
     
                     <div class="box">
-                        <p>
-                            -- Description of the visualisation that is being presented -- 
+                        <p style="font-size: 20px" align="center">
+                            <br>
+                            <b>Just a mere 15 meat and dairy companies are able to beat leading fossil fuel companies in 2020 and 2021 in terms of carbon emissions.</b>
                         </p>
                     </div>
                 
                         <div class="box">
                             <div id="canvas-container">
-                                Here is the effect of your current habits
-                                <canvas id="livestock-chart" width="400" height="400"></canvas> 
+                                
+                                <canvas id="livestock-chart" width="200" height="500"></canvas> 
                             </div>
                         
         
@@ -64,8 +88,12 @@
                         </div>
         
                         <div class="box">
-                            <p>
-                                -- Description of the visualisation that is being presented -- 
+                            <p align="center">
+                                <mark id="markbeef" style="font-size:24px"> <b>What can you do to reduce carbon emissions from meat production?</b></mark>
+                                <br> <br>
+                                1. Reduce meat consumption
+                                <br>
+                                2. Opt for plant-based food options
                             </p>
                         </div> 
                   
@@ -88,7 +116,7 @@
                     <div id="canvas-container">
                         These are your current habits
                     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>
-                    <canvas id="fashion-chart" width="400" height="400"></canvas> 
+                    <canvas id="fashion-chart" width="200" height="400"></canvas> 
                     </div>
                 </div>
                 <!--link to source-->
@@ -106,7 +134,7 @@
                 <div class="box">
                     <div id="canvas-container">
                         Here is the effect of your current habits
-                        <canvas id="apparel-chart" width="400" height="400"></canvas> 
+                        <canvas id="apparel-chart" width="200" height="200"></canvas> 
                     </div>
                 </div>
 
@@ -197,8 +225,16 @@
     <!-- End of the fourth section -->
 
 <div align="center">
-    <h1> <button type="button" class="button" id="count" onclick="pledger()"> I pledge to be a sustainable consumer </h1>
     <h2 id="pledge"> <span class="counter">0</span> people have pledged</h2>
+    <h1> <button type="button" class="button" id="count" onclick="pledger()"> I pledge to be a <br> sustainable consumer </h1>
+    
 </div>
+
+<div class="footer">
+    <h1>
+        <b>Credits:</b>
+    </h1>
+</div>
+
 
 </html>

@@ -31,7 +31,7 @@ new Chart("beef-chart",
             },
             title: {
                 display: true,
-                text: ['Volume of beef consumed in Singapore from 2011 to 2020 Volume of beef consumed in Singapore from 2011 to 2020','(in 1,000 metric tons)'] ,
+                text: ['Volume of beef consumed in Singapore from 2011 to 2020','(in 1,000 metric tons)'] ,
                 fontSize: 24,
                 fontColor: 'rgb(0,120,0)',
             },
@@ -46,14 +46,14 @@ new Chart("beef-chart",
 
 
 //livestock emissions chart
-const labelCompany = ["15 meat and dairy companies", "Petrochina", "ExxonMobil", "BP", "Royal Dutch Shell", "Occidental", "Conoco Phillips"]
+const labelCompany = ["15 meat and dairy companies","Petrochina","ExxonMobil","BP","Royal Dutch Shell","Occidental","Conoco Phillips"]
 
 const livestockdata = {
     labels: labelCompany,
      datasets: [
         {
             label: "livestock emissions",
-            data:  [734,	674,	567,	518,	508,	193,	170
+            data:  [734,674,567,518,508,193,170
             ],
             borderWidth: 2,
             fill: false,
