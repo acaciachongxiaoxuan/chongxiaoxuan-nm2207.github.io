@@ -8,7 +8,7 @@ body {
   padding: 0;
   height:100%;
   width:100%;
-  background-color: rgb(255, 255, 255);
+  background-color: #ecddcb;
   scroll-behavior: smooth;
 }
 
@@ -34,19 +34,6 @@ body {
   
 }
 
-#ageTitle {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-  text-align: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  color: #ffffff;
-  text-shadow: 1px 1px #461f10;
-  background:rgb(121, 87, 59);
-  padding: 10px;
-  box-shadow: 4px 4px #b88c6d;
-  
-}
 
 .header {
   padding-left: 50px;
@@ -82,8 +69,11 @@ body {
 .button {
   height: 100px;
   width: 300px;
-  border-radius: 10px;
+  border-radius: 100px;
   font-size: 20px;
+  border: ridge;
+  border-width: 5px;
+  font-weight: bold;
   
 }
 
@@ -93,13 +83,64 @@ body {
   padding-top: 10px;
 }
 
+
+#pledgeTitle{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  text-align: center;
+  border-radius: 10px;
+  color: #ffffff;
+  text-shadow: 1px 1px #a27b6c;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 100px;  
+  width:60vw;
+  font-size: 20px;
+}
+
+#pledge {
+  color:rgb(254, 255, 255);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#ageTitle {
+  margin-top: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 10px;
+  color: #ffffff;
+  text-shadow: 1px 1px #461f10;
+  background:rgb(121, 87, 59);
+  padding: 10px;
+  box-shadow: 4px 4px #b88c6d;
+  margin-left: auto;
+  margin-right: auto;
+  width:60vw;
+  font-size: 20px;
+  
+}
+
+
 #ageSectionTitle {
   text-align: center;
   font-size: 18px;
   padding-top: 10px;
   border-radius: 10px;
-  height: 200px;
+  height: 50px;
+  
 }
+
+
+#ageChartID {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  align-content: center;
+  overflow: hidden;
+}
+
 
 
 
@@ -115,9 +156,9 @@ a {
 a,
 a:visited,
 a:hover {
-  color: teal;
-  text-decoration: none;
-  
+  color: rgb(255, 243, 236);
+  text-decoration: underline;
+ 
 }
 
 nav {
@@ -173,9 +214,19 @@ nav {
   margin-bottom: 320px;
 }
 
+#realFooter {
+  background-color: #41312a;
+  height: 400px
+}
+
+#footer {
+  background-color: #41312a;
+  color:rgb(254, 255, 255);
+}
+
 #outro {
   height: 300px;
-  background-color: #ecddcb;
+  background-color: #41312a;
 }
 
 @media (min-width: 840px) {
@@ -228,12 +279,12 @@ article {
 }
 
 .sticky-thing p {
-  padding: 1rem;
+  /*padding: 1rem;*/
   font-size: 8rem;
   font-weight: 900;
-  color: #ffffff;
+  color: #5f0707;
   width: 2px;
- 
+  visibility: hidden
 }
 
 .step {
@@ -268,8 +319,10 @@ article {
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border: hidden;
+  border-radius: 10px;
+  background-color: #bcbcbc;
+  
 }
 
 /* Style the buttons that are used to open the tab content */
@@ -279,24 +332,93 @@ article {
   border: none;
   outline: none;
   cursor: pointer;
+  font-size: 15px;
+
   padding: 14px 16px;
   transition: 0.3s;
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: #5c5953;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: #ffffff;
 }
 
 /* Style the tab content */
 .tabcontent {
+  margin: auto;
   display: none;
+  font-weight: 3px;
   padding: 6px 12px;
-  border: 1px solid #ccc;
   border-top: none;
+  animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+
+/*flip card*/
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  background-color: transparent;
+  width: 350px;
+  height: 500px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: dodgerblue;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/*Flex flip card*/
+#flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90vw;
+  margin: 50px auto;
+  
 }

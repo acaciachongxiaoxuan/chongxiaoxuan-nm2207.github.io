@@ -95,21 +95,7 @@ var main = document.querySelector("main");
             document.getElementById("drawChartHere").removeChild(recyclingChart.canvas);
           }
         }
-        // if current step is data-step="6" append the chart to the div with id "drawChartHere"
-        if (el.dataset.step === "6") {
-          if (!document.getElementById("drawChartHere").contains(ageChart.tabContent.canvas)) {
-            document.getElementById("drawChartHere").appendChild(ageChart.tabContent.canvas);
-          } else {
-            // remove chart from div and append again to re-render
-            document.getElementById("drawChartHere").removeChild(ageChart.tabContent.canvas);
-            document.getElementById("drawChartHere").appendChild(ageChart.tabContent.canvas);
-          }
-        } else {
-          // remove chart from div if current step is not data-step="6" 
-          if (document.getElementById("drawChartHere").contains(ageChart.tabContent.canvas)) {
-            document.getElementById("drawChartHere").removeChild(ageChart.tabContent.canvas);
-          }
-        }
+        
 
       }
       //function to step the divs
@@ -422,8 +408,8 @@ new Chart("recyclingChart",
 
 
 
-  
-//age group chart
+
+//age group chart data
 const adoptLabels= [ "Yes", "No", "Not Sure"]
 const data0 = {
     labels: adoptLabels,
@@ -431,9 +417,9 @@ const data0 = {
     {   label: "16-24 years",
         data: [49.72, 29.57, 20.7],
         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+            'rgb(133, 224, 133)',
+            'rgb(255, 102, 102)',
+            'rgb(255, 204, 0)'
           ],
           hoverOffset: 4
     }]}
@@ -444,9 +430,9 @@ const data1 = {
     {   label: "25-34 years",
         data: [51.21, 28.87, 19.92],
         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+          'rgb(133, 224, 133)',
+          'rgb(255, 102, 102)',
+          'rgb(255, 204, 0)'
           ],
           hoverOffset: 4
     }]}
@@ -457,9 +443,9 @@ const data2 = {
     {   label: "35-44 years",
         data: [44.64, 34.68, 20.68],
         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+          'rgb(133, 224, 133)',
+          'rgb(255, 102, 102)',
+          'rgb(255, 204, 0)'
           ],
           hoverOffset: 4
     }]}
@@ -470,9 +456,9 @@ const data3 = {
     {   label: "45-54 years",
         data: [42.54, 32.8, 24.66],
         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+          'rgb(133, 224, 133)',
+          'rgb(255, 102, 102)',
+          'rgb(255, 204, 0)'
           ],
           hoverOffset: 4
     }]}
@@ -483,82 +469,238 @@ const data4 = {
     {   label: "55+ years",
         data: [36.18, 31.91, 31.91],
         backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
+          'rgb(133, 224, 133)',
+          'rgb(255, 102, 102)',
+          'rgb(255, 204, 0)'
           ],
           hoverOffset: 4
     }]}
 
-const defaultConfig = {
+
+//creating age group chart
+
+new Chart("ageChart0",
+    {
+        type: "doughnut",
+        data: data0,
+        options: { 
+            responsive: false,
+            maintainAspectRatio: false,
+            legend: {
+                display: true
+            },
+            title: {
+                display: true,
+                text: ['16-24 years'] ,
+                fontSize: 24,
+                fontColor: 'rgb(0, 0, 0)',
+            },
+            plugins: {
+                datalabels: {
+                  formatter: (value, categories) => {
+
+                    let sum = 0;
+                    let dataArr = categories.chart.data.datasets[0].data;
+                    dataArr.map(data => {
+                        sum += data;
+                    });
+                    let percentage = (value*100 / sum).toFixed(2)+"%";
+                    return percentage;
+
+
+                },
+                color: 'rgb(0, 0, 0)',
+                
+                },
+            }
+        }
+    });
+
+new Chart("ageChart1",
+{
     type: "doughnut",
-    data: data0,
-    options:  {
+    data: data1,
+    options: { 
+        responsive: false,
         maintainAspectRatio: false,
         legend: {
-            display: false
-        },
-        title: {
-            display: true,
-            text: ['16-24 years'] ,
-            fontSize: 24,
-            fontColor: 'rgb(0,120,0)',
-        },
-        plugins: {
-            datalabels: {
-                display: false,
-            },
-        }
-
-}}
-
-var create = document.getElementById('ageChart').getContext('2d');
-var chart = new Chart(create, defaultConfig);
-
-document.getElementById("button0").addEventListener('click', () => {
-    const chart = document.getElementById("ageChart");
-   // chart.config.format = { type: "doughnut" };
-    chart.data = data0;
-    chart.options = { 
-        maintainAspectRatio: false,
-        legend: {
-            display: false
-        },
-        title: {
-            display: true,
-            text: ['16-24 years'] ,
-            fontSize: 24,
-            fontColor: 'rgb(0,120,0)',
-        },
-        plugins: {
-            datalabels: {
-                display: false,
-            },
-        }
-    };
-    chart.update();
-  }) 
-
-  document.getElementById("button1").addEventListener('click', () => {
-    const chart = document.getElementById("ageChart");
-    //chart.config.format = { type: "doughnut" };
-    chart.data = data1;
-    chart.options = { 
-        maintainAspectRatio: false,
-        legend: {
-            display: false
+            display: true
         },
         title: {
             display: true,
             text: ['25-34 years'] ,
             fontSize: 24,
-            fontColor: 'rgb(0,120,0)',
+            fontColor: 'rgb(0, 0, 0)',
         },
         plugins: {
             datalabels: {
-                display: false,
+              formatter: (value, categories) => {
+
+                let sum = 0;
+                let dataArr = categories.chart.data.datasets[0].data;
+                dataArr.map(data => {
+                    sum += data;
+                });
+                let percentage = (value*100 / sum).toFixed(2)+"%";
+                return percentage;
+
+
+            },
+            color: 'rgb(0, 0, 0)',
             },
         }
+    }
+});
 
- };
+new Chart("ageChart2",
+{
+    type: "doughnut",
+    data: data2,
+    options: { 
+        responsive: false,
+        maintainAspectRatio: false,
+        legend: {
+            display: true
+        },
+        title: {
+            display: true,
+            text: ['35-44 years'] ,
+            fontSize: 24,
+            fontColor: 'rgb(0, 0, 0)',
+        },
+        plugins: {
+            datalabels: {
+              formatter: (value, categories) => {
+
+                let sum = 0;
+                let dataArr = categories.chart.data.datasets[0].data;
+                dataArr.map(data => {
+                    sum += data;
+                });
+                let percentage = (value*100 / sum).toFixed(2)+"%";
+                return percentage;
+
+
+            },
+            color: 'rgb(0, 0, 0)',
+            },
+        }
+    }
+});
+
+new Chart("ageChart3",
+{
+    type: "doughnut",
+    data: data3,
+    options: { 
+        responsive: false,
+        maintainAspectRatio: false,
+        legend: {
+            display: true
+        },
+        title: {
+            display: true,
+            text: ['45-54 years'] ,
+            fontSize: 24,
+            fontColor: 'rgb(0, 0, 0)',
+        },
+        plugins: {
+            datalabels: {
+              formatter: (value, categories) => {
+
+                let sum = 0;
+                let dataArr = categories.chart.data.datasets[0].data;
+                dataArr.map(data => {
+                    sum += data;
+                });
+                let percentage = (value*100 / sum).toFixed(2)+"%";
+                return percentage;
+
+
+            },
+            color: 'rgb(0, 0, 0)',
+            },
+        }
+    }
+});
+
+new Chart("ageChart4",
+{
+    type: "doughnut",
+    data: data4,
+    options: { 
+        responsive: false,
+        maintainAspectRatio: false,
+        legend: {
+            display: true,
+            
+        },
+        title: {
+            display: true,
+            text: ['55+ years'] ,
+            fontSize: 24,
+            fontColor: 'rgb(0, 0, 0)',
+        },
+        plugins: {
+            datalabels: {
+              formatter: (value, categories) => {
+
+                let sum = 0;
+                let dataArr = categories.chart.data.datasets[0].data;
+                dataArr.map(data => {
+                    sum += data;
+                });
+                let percentage = (value*100 / sum).toFixed(2)+"%";
+                return percentage;
+
+
+            },
+            color: 'rgb(0, 0, 0)',
+            },
+        }
+    }
+});
+
+
+
+
+//default chart shown on tabs
+    document.getElementById("defaultOpen").click();
+
+
+function openAge(evt, ageName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(ageName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+var counter = 0
+function pledger() {
+      counter = counter+1 ;
+      console.log(counter);
+      if (counter===1) {
+        document.getElementById("pledge").innerHTML =  counter + " person has pledged";
+      } else {
+        document.getElementById("pledge").innerHTML =  counter + " people have pledged";
+      }
+     }
+    
+
+document.getElementById("count").addEventListener('click', () => {
+    alert("Thank you for pledging to be a sustainable consumer!");
 })
