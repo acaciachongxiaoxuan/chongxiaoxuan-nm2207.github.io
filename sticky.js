@@ -1,3 +1,4 @@
+//Chunk of code to allow the scrollytelling part to work using Scrollama
 var main = document.querySelector("main");
       var scrolly = main.querySelector("#scrolly");
       var sticky = scrolly.querySelector(".sticky-thing");
@@ -8,16 +9,15 @@ var main = document.querySelector("main");
       var scroller = scrollama();
 
       // scrollama event handlers
+      // in the following function, response = { element, direction, index }
       function handleStepEnter(response) {
-        // response = { element, direction, index }
         var el = response.element;
 
-        // remove is-active from all steps
-        // then add is-active to this step
+        // remove is-active from all steps, then add is-active to this step
         steps.forEach(step => step.classList.remove('is-active'));
         el.classList.add('is-active');
 
-        // update graphic based on step
+        // update chart based on step
         sticky.querySelector("p").innerText = el.dataset.step;
 
         // if current step is data-step="1" append the chart to the div with id "drawChartHere"
@@ -127,8 +127,8 @@ const beefData = {
             ],
             borderWidth: 2,
             fill: false,
-            backgroundColor: "rgb(128, 0, 0)",
-            borderColor: "rgb(128, 0, 0)"
+            backgroundColor: "rgb(0, 51, 153)",
+            borderColor: "rgb(0, 51, 153)"
         },
         
      ]
@@ -172,9 +172,9 @@ const livestockData = {
             label: "livestock emissions",
             data:  [734,674,567,518,508,193,170
             ],
-            borderWidth: 2,
+            borderWidth: 3,
             fill: false,
-            backgroundColor: ["rgb(204, 0, 0)","rgb(182, 104, 104)","rgb(182, 104, 104)","rgb(182, 104, 104)","rgb(182, 104, 104)","rgb(182, 104, 104)","rgb(182, 104, 104)",]
+            backgroundColor: ["rgb(77, 166, 255)","rgb(0, 51, 153)","rgb(0, 51, 153)","rgb(0, 51, 153)","rgb(0, 51, 153)","rgb(0, 51, 153)","rgb(0, 51, 153)",]
         },
         
      ]
@@ -219,7 +219,7 @@ const fashionData = {
              ],
             borderWidth: 2,
             fill: false,
-            backgroundColor: "rgb(26, 140, 255)",
+            backgroundColor: "rgb(154, 88, 167)",
            
         },
         {
@@ -228,7 +228,7 @@ const fashionData = {
              ],
             borderWidth: 2,
             fill: false,
-            backgroundColor: "rgb(153, 204, 255)",
+            backgroundColor: "rgb(161, 54, 96)",
           
         },
         
@@ -290,7 +290,6 @@ new Chart("fashionChart",
                   anchor: 'end',
                   align: 'right',
               
-            //add code to add % symbol, something is wrong with the tooltip labels also
             
         }
       }}
@@ -311,8 +310,8 @@ labels: labelApparel,
         ],
         borderWidth: 2,
         fill: false,
-        backgroundColor: "rgb(51, 102, 255)",
-        borderColor: "rgb(51, 102, 255)"
+        backgroundColor: "rgb(161, 54, 96)",
+        borderColor: "rgb(161, 54, 96)"
     },
     
  ]
@@ -356,7 +355,7 @@ const recyclingData = {
     label: 'Always',
     data: [28, 72],
     backgroundColor: [
-      'rgb(153, 255, 153)',
+      'rgb(133, 188, 133)',
       'rgb(255, 102, 102)'
       
     ],
@@ -384,6 +383,14 @@ new Chart("recyclingChart",
               fontSize: 18,
               fontColor: 'rgb(0,0,0)',
           },
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItem, data) {
+                return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+              }
+    
+            },
+          },
           plugins: {
               datalabels: {
                   formatter: (value, categories) => {
@@ -409,7 +416,7 @@ new Chart("recyclingChart",
 
 
 
-//age group chart data
+// age group chart data
 const adoptLabels= [ "Yes", "No", "Not Sure"]
 const data0 = {
     labels: adoptLabels,
@@ -417,9 +424,9 @@ const data0 = {
     {   label: "16-24 years",
         data: [49.72, 29.57, 20.7],
         backgroundColor: [
-            'rgb(133, 224, 133)',
+            'rgb(133, 188, 133)',
             'rgb(255, 102, 102)',
-            'rgb(255, 204, 0)'
+            'rgb(234, 195, 42)'
           ],
           hoverOffset: 4
     }]}
@@ -430,9 +437,9 @@ const data1 = {
     {   label: "25-34 years",
         data: [51.21, 28.87, 19.92],
         backgroundColor: [
-          'rgb(133, 224, 133)',
+          'rgb(133, 188, 133)',
           'rgb(255, 102, 102)',
-          'rgb(255, 204, 0)'
+          'rgb(234, 195, 42)'
           ],
           hoverOffset: 4
     }]}
@@ -443,9 +450,9 @@ const data2 = {
     {   label: "35-44 years",
         data: [44.64, 34.68, 20.68],
         backgroundColor: [
-          'rgb(133, 224, 133)',
+          'rgb(133, 188, 133)',
           'rgb(255, 102, 102)',
-          'rgb(255, 204, 0)'
+          'rgb(234, 195, 42)'
           ],
           hoverOffset: 4
     }]}
@@ -456,9 +463,9 @@ const data3 = {
     {   label: "45-54 years",
         data: [42.54, 32.8, 24.66],
         backgroundColor: [
-          'rgb(133, 224, 133)',
+          'rgb(133, 188, 133)',
           'rgb(255, 102, 102)',
-          'rgb(255, 204, 0)'
+          'rgb(234, 195, 42)'
           ],
           hoverOffset: 4
     }]}
@@ -469,16 +476,15 @@ const data4 = {
     {   label: "55+ years",
         data: [36.18, 31.91, 31.91],
         backgroundColor: [
-          'rgb(133, 224, 133)',
+          'rgb(133, 188, 133)',
           'rgb(255, 102, 102)',
-          'rgb(255, 204, 0)'
+          'rgb(234, 195, 42)'
           ],
           hoverOffset: 4
     }]}
 
 
-//creating age group chart
-
+// creating age group charts
 new Chart("ageChart0",
     {
         type: "doughnut",
@@ -494,6 +500,14 @@ new Chart("ageChart0",
                 text: ['16-24 years'] ,
                 fontSize: 24,
                 fontColor: 'rgb(0, 0, 0)',
+            },
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+                }
+      
+              },
             },
             plugins: {
                 datalabels: {
@@ -669,16 +683,16 @@ new Chart("ageChart4",
 
 
 function openAge(evt, ageName) {
-  // Declare all variables
+  // declare all variables
   var i, tabcontent, tablinks;
 
-  // Get all elements with class="tabcontent" and hide them
+  // get all elements with class="tabcontent" and hide them
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
 
-  // Get all elements with class="tablinks" and remove the class "active"
+  // get all elements with class="tablinks" and remove the class "active"
   tablinks = document.getElementsByClassName("tablinks");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
@@ -689,9 +703,11 @@ function openAge(evt, ageName) {
   evt.currentTarget.className += " active";
 }
 
+
+//counter to increase the number of people who have pledged every time the button is clicked + firebase (?, update:nevermind it couldnt work :<)
 var counter = 0
 function pledger() {
-      counter = counter+1 ;
+      counter +=1 ;
       console.log(counter);
       if (counter===1) {
         document.getElementById("pledge").innerHTML =  counter + " person has pledged";
@@ -702,5 +718,24 @@ function pledger() {
     
 
 document.getElementById("count").addEventListener('click', () => {
-    alert("Thank you for pledging to be a sustainable consumer!");
+    alert("Thank you for pledging to be a sustainable consumer! Do remember to practice the above ways in your daily life and spread the word!");
 })
+
+
+
+
+//typewriter effect on header
+var i = 0;
+var txt = 'Dear Singaporean' +",\xa0\xa0\xa0 "; /* The text */
+var speed = 100; /* The speed/duration of the effect in milliseconds */
+
+function typeWriter() {
+  if (i < txt.length) {
+    document.getElementById("headerTitle").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+typeWriter()
+

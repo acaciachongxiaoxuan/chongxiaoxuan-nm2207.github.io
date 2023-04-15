@@ -5,6 +5,8 @@
     <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
     <script src="https://unpkg.com/scrollama"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>What does it mean to be a sustainable consumer?</title>
@@ -12,35 +14,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="sticky.css" />
     <script defer type="text/javascript" src="sticky.js"> </script>
+    
   </head>
 
   <body>
     <main>
+      
       <div class="header">
-        <p id="header-title"><b>Dear Singaporean, are you a <br>
-          <i>Sustainable Consumer?</i></b></p>
+        <p id="headerTitle"></p>
+        <a href="#yay"><button type="button" class="btn" id="headerbutton1" align="center"> Your current habits <br> & their effects</button></a>
+        <a href="#woo"><button type="button" class="btn" id="headerbutton2"> How can you be a <br> sustainable consumer?</button></a>
+        <a href="#sgp"><button type="button" class="btn" id="headerbutton3"> What does it mean to be<br>a sustainable consumer?</button></a>
+      </div>
+      <div class="subheaderDiv" id="sgp">
         <p align="center" class="subheader">
+          Being a sustainable consumer would entail <b>consuming resources and products in a sustainable and responsible way,
+          <br>such that both current and future needs can be met, without creating a negative impact on the environment.</b>
+          <br><br>
+          <a href="https://www.greenplan.gov.sg/"><img src="resources/SGP.png" width="280vw" height="75vh" title="Click here to visit the SG Green Plan website"></a>
+          <br> <br>
           The Singapore Government has recently announced the SG Green Plan 2030, 
           <br> a nation-wide sustainable development agenda.
           <br><br>
           As a consumer, you have a really big role to play in ensuring the success of this plan!
           <br>
-          In your everyday life, the food and fashion products that you consumer, 
+          In your daily lives, the food and fashion products that you consume, 
           <br> as well as your recycling efforts can make a big difference to the sustainability of our nation.
-          <br>
+          <br><br> Read on to find out how you current consumption habits impact the environment, 
+          <br>as well as learn some ways you can be a more sustainable consumer!
          <!-- <p style="font-size:20px"><mark id="mark">Click on the leaf below to learn more about how you can be sustainable consumer!</mark> </p>
          <br>  -->
          <br><br>
-         <a href="#yay"><img src ="resources/down-chevron.png" class="btn" style="width:80px" title="click here to learn how to be sustainable!"></a>
+         <a href="#yay"><img src ="resources/down-chevron.png" class="btn" style="width:60px" title="Click here to learn about your current habits and their effects!"></a>
         
          </p>
+
       </div>
       
       
 
       <section id="scrolly">
         <article>
-          <div class="title" id="yay">
+          <div class="food-title" id="yay">
           <b>Food Products</b></div>
           <div class="step" data-step="1">
             <h2 class="section-title" >
@@ -53,13 +68,14 @@
             <br>
             <br>
             Beef requires more resources to produce that most other types of meat, even when meat is already more resource-intensive to produce than plant-based foods.    
-            <br><br>
-           <img src="resources/steak.png" width="165px" height="120px">
-            <p style="font-size: 15px"> chart source: blabla</p>
+            <br><br><br>
+           <img src="resources/meat.png" width="110px" height="110px" title="Stop eating me!">
+           <br><br>
+           <a href="https://www-statista-com.libproxy1.nus.edu.sg/statistics/1039518/total-beef-consumption-singapore/?locale=en">chart source</a>
           </p>
           </div>
 
-          <div class="title"><b>Food Products</b></div>
+          <div class="food-title"><b>Food Products</b></div>
           <div class="step" data-step="2">
             <h2 class="section-title">
               <b>Effects</b>
@@ -67,16 +83,17 @@
           <p style="font-size:17px; text-align:center"> 
             <b> In 2020 and 2021, 15 major meat and dairy companies had higher carbon-equivalent emissions than leading fossil fuel companies. </b>
             <br> <br>
-            Cow farts and burps mostly contain methane, a greenhouse gas which traps heat in the Earth's atmosphere.
-            Greenhouse gases work to keep our planet warm through the greehouse effect, but too much would mean global warming!
-            <br> <br>
-            <img src="resources/greenhouseeffect.png" width="160px" height="140px">
-            <p style="font-size: 15px"> chart source: blabla</p>
+            Cow farts and burps mostly contain methane, a greenhouse gas which traps heat in the Earth's atmosphere. Producing more beef or cow products will lead to increased emittance of methane.
+            <br>Greenhouse gases work to keep our planet warm through the greehouse effect, but too much would mean global warming!
+            <br><br>
+            <img src="resources/methane.jpg" width="140px" height="130px" title="Too much methane is bad!">
+            <br><br>
+            <a href="https://www.iatp.org/sites/default/files/2022-11/Emissions%20Impossible_Methane%20Edition_%20FINAL.pdf">chart source</a>
           </p>
           
           </div>
 
-          <div class="title"><b>Fashion Products</b></div>
+          <div class="fashion-title"><b>Fashion Products</b></div>
           <div class="step" data-step="3">
             <h2 class="section-title">
               <b>Current Habits</b>
@@ -85,13 +102,15 @@
               <b> In terms of fashion products like cosmetics, clothing, and footwear, Singaporeans would rather switch brands than to pay for more eco-friendly products.  </b>
               <br><br>
               This causes us to support less eco-friendly fashion brands in the long-term. Our society today is plagued with
-              fast-fashion brands and most of us are guilty of patronising these brands.
+              fast-fashion brands and most of us are guilty of patronising these brands (e.g. Shein, Zara).
+              <br><br><br>
+              <img src="resources/eco-friendly.png" width="120px" height="120px" title="Support eco-friendly fashion products!">
               <br><br>
-              <img src="resources/360_F_396899719_bP66V8ctW2pxJ1g9xygqGcI59txA4p7V.jpg" width="220px" height="130px">
+              <a href="https://sg.yougov.com/en-sg/news/2022/04/19/ecolabels-influence-purchase-decisions-singapore/">chart source</a>
             </p>
           </div>
 
-          <div class="title"><b>Fashion Products</b></div>
+          <div class="fashion-title"><b>Fashion Products</b></div>
           <div class="step" data-step="4">
             <h2 class="section-title">
               <b>Effects</b>
@@ -101,12 +120,14 @@
               <br><br>
               Fashion products generate carbon emissions in various parts of its life cycle, from its production to when it is discarded and ends up in landfills or incineration plants.
               These carbon emissions will lead to an enhanced greenhouse effect in our planet as well!
+              <br><br><br>
+              <img src="resources/factory.png"  width="110px" height="110px" title="The apparel industry is very pollutive :(">
               <br><br>
-              <img src="resources/production.png"  width="140px" height="140px">
+              <a href="https://apparelimpact.org/wp-content/uploads/2022/02/roadmap-net-zero-delivering-science-based-targets-apparel-sector.pdf">chart source</a>
             </p>
           </div>
 
-          <div class="title"><b>Recycling Efforts</b></div>
+          <div class="recycling-title"><b>Recycling Efforts</b></div>
           <div class="step" data-step="5">
             <h2 class="section-title">
               <b></b>
@@ -116,6 +137,10 @@
               <br><br>
               Recycling is part of the SG Green Plan 2030 'Sustainable Living' pillar. It supports Singapore's transition to become a zero waste nation. 
               With more people engaged in recycling, it reduces the need for natural resource extraction as present materials could be reused for longer.
+              <br><br><br>
+              <img src="resources/recycle.png" width="110px" height="110px" title="Recycling is cool!">
+              <br><br>
+              <a href="https://www.ocbc.com/iwov-resources/sg/ocbc/gbc/pdf/sustainability/climate-index/media-briefing.pdf">chart source</a>
             </p>
           </div>
 
@@ -129,32 +154,33 @@
 
   
     <div id="beefChartID" style="display:none;">
-      <canvas id="beefChart" width="600" height="300"></canvas>
+      <canvas id="beefChart" style="width:50vw; height:50vh"></canvas>
     </div>
     
     <div id="livestockChartID" style="display:none;">                 
-      <canvas id="livestockChart" width="600" height="300"></canvas> 
+      <canvas id="livestockChart" style="width:50vw; height:50vh"></canvas> 
     </div>
 
     <div id="fashionChartID" style="display:none;">                 
-      <canvas id="fashionChart" width="600" height="300"></canvas> 
+      <canvas id="fashionChart" style="width:50vw; height:50vh"></canvas> 
     </div>
 
     <div id="apparelChartID" style="display:none;">                 
-      <canvas id="apparelChart" width="600" height="300"></canvas> 
+      <canvas id="apparelChart" style="width:50vw; height:50vh"></canvas> 
     </div>
 
     <div id="recyclingChartID" style="display:none;">  
       <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@0.7.0"></script>               
-      <canvas id="recyclingChart" width="600" height="300"></canvas> 
+      <canvas id="recyclingChart" style="width:50vw; height:50vh"></canvas> 
     </div>
    </div>
 
-   <div id="ageTitle"><b>Is your age group open to adopting sustainable consumption habits?</b></div>
-            <!-- <h2 id="ageSectionTitle">
-              <b>Click on the different tabs to find out!</b>
-           </h2> -->
-          <br><br>
+   <div class="ageTitle"><b>Is your age group open to adopting sustainable consumption habits?</b></div>
+            <center><p style="font-size:18px">
+              Different age groups have varying levels of acceptance towards sustainable consumption habits, 
+              <br> find outhow your age group fairs among others below!
+            </p></center>
+          <br>
             <div id="ageChartID">
               <div class="tab">
                 <button class="tablinks" onclick="openAge(event, '1624')" id="defaultOpen" > <b> 16-24 years old</b></button>
@@ -162,7 +188,7 @@
                 <button class="tablinks" onclick="openAge(event, '3544')"> <b>35-44 years old</b></button>
                 <button class="tablinks" onclick="openAge(event, '4554')"> <b>45-54 years old</b></button>
                 <button class="tablinks" onclick="openAge(event, '5555')"> <b>55+ years old</b></button>
-              </div>
+              </div> <br>
           
               <center>
               <div id="1624" class="tabcontent">
@@ -184,22 +210,34 @@
               <div id="5555" class="tabcontent">
                 <canvas id="ageChart4" width="600" height="400"></canvas> 
               </div>
+              <br><br>
+            <a href="https://www-statista-com.libproxy1.nus.edu.sg/statistics/1320571/singapore-adoption-of-sustainable-consumption-practices-by-age-group/?locale=en">chart source</a>
+            <p style="font-size:18px">Are you pleased with the mindset of your age group in comparison to others?
+              <br>Do you think you can do better? </p>
             </center>
-
-            <p style="font-size: 15px"> chart source: blabla</p>
+            
     </div>
 
-<div id="ageTitle"><b> How can you become a more sustainable consumer?</b></div>
+<div class="ageTitle" id="woo"><b> How can you be a sustainable consumer?</b></div>
 <div id="flex-container">
   <div class="flip-card" class="flex-item" id="flipLeft">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img src="resources/food.png" alt="Food Products" class="flip-image">
+        <img src="resources/food.png" alt="Food Products" class="flip-image" style="width: 315px; height: 450px;">
       </div>
       <div class="flip-card-back">
-        <h1>What can you do?</h1>
-        <p>1. </p>
-        <p>2. </p>
+        <h1>How can you<br>consume food products<br>more sustainably?</h1>
+        <div class="flipContent">
+          1. Reduce meat consumption
+          <br><img src="resources/reducemeat.png" class="icon">
+          <br><br>
+          2. Switch to plant-based proteins<br>(e.g. tofu, soy products)
+          <br><img src="resources/plant.png" class="icon">
+          <br><br>
+          3. Become vegan if possible!
+          <br><img src="resources/vegan.png" class="icon">
+        </div>
+        
       </div>
     </div>
   </div>
@@ -207,12 +245,20 @@
   <div class="flip-card" class="flex-item" id="flipMiddle">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img src="resources/fashon.png" alt="Fashion Products" class="flip-image">
+        <img src="resources/fashon.png" alt="Fashion Products" class="flip-image" style="width: 315px; height: 450px;">
       </div>
       <div class="flip-card-back">
-        <h1>What can you do?</h1>
-        <p>1. </p>
-        <p>2. </p>
+        <h1>How can you<br>consume fashion products<br>more sustainably?</h1>
+        <div class="flipContent">
+          1. Don't engage in fast fashion <br> (quality over quantity)
+          <br><img src="resources/consumption.png" class="icon">
+          <br><br>
+          2. Upcycle your clothes
+          <br><img src="resources/upcycling.png" class="icon">
+          <br><br>
+          3. Donate preloved clothes
+          <br><img src="resources/clothes.png" class="icon">
+        </div>
       </div>
     </div>
   </div>
@@ -220,12 +266,21 @@
   <div class="flip-card" class="flex-item" id="flipRight">
     <div class="flip-card-inner">
       <div class="flip-card-front">
-        <img src="resources/recycling.png" alt="Recycling" class="flip-image">
+        <img src="resources/recycling.png" alt="Recycling" class="flip-image" style="width: 315px; height: 450px;">
       </div>
       <div class="flip-card-back">
-        <h1>What can you do?</h1>
-        <p>1. </p>
-        <p>2. </p>
+        <h1>What can you do to improve<br>your recycling habits?</h1>
+        <p class="flipContent">
+          1. Make sure the item is<br>clean, empty and dry
+          <br><img src="resources/bubbles.png" class="icon">
+          <br><br>
+          2. Avoid buying non-recyclable materials
+          <br><img src="resources/snack.png" class="icon">
+          <br><br>
+          3. Say no to plastic
+          <br><img src="resources/plastic-bag.png" class="icon">
+          <br><br>
+        </p>
       </div>
     </div>
   </div>
@@ -239,7 +294,6 @@
   <div align="center">
     <br>
     <h2 id="pledge"> <span class="counter">0</span> people have pledged</h2>
-    <br>
     <h1> <button type="button" class="button" id="count" onclick="pledger()"> I pledge to be a <br> sustainable consumer </h1>
     
   </div>
@@ -251,9 +305,9 @@
     </main>
    
     <div id="footer">
-      <h1>
-          <b>Submissions:</b>
-      </h1>
+      <b style="font-size:30px"><a href= "resources/sources.docx"> <b>References</b></a></b>
+      <br>
+      <b style="font-size:30px">Submissions:</b>
       <p style="font-size:20px; color:antiquewhite;" >
       <a href="https://docs.google.com/document/d/1sI3-i-f7VYzrsvzr4HFsAlqhRuMuMci5/edit?usp=sharing&ouid=101022537814234720085&rtpof=true&sd=true"><b>Project Documentation</b></a>
       <br>
